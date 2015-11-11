@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var toDoList = [
 {   _id: 1,
 	task: "laundry",
-    time: "5:00 pm"
+    time: "1:30 pm"
 },
 {   _id: 2,
     task : "grocieries",
@@ -37,16 +37,16 @@ app.get('/api/todo', function(req, res) {
 	res.json(toDoList);
 });
 
-//get a single todo
-app.get('/api/todo/:id', function(req, res){
-	//get todo id from URL params
-	var todoID = parseInt (req.params._id);
-	//find todo by ID
-    var findToDo = toDoList.filter(function(todo){
-    	return todo._id == todoID;
-        });
-        res.json(findToDo);
-    });
+// //get a single todo
+// app.get('/api/todo/:id', function(req, res){
+// 	//get todo id from URL params
+// 	var todoID = parseInt (req.params.id);
+// 	//find todo by ID
+//     var findToDo = toDoList.filter(function(todo){
+//     	return todo._id == todoID;
+//         });
+//         res.json(findToDo);
+//     });
 
 
 //setting POST route to post a new todo
@@ -66,6 +66,24 @@ app.post('/api/todo', function(req, res){
 	res.json(newToDo);
 
 });
+
+//setting up PUT route to update
+app.put('/api/todo/:id', function(req,res){
+	//get todo id from URL params
+	var toDoID = parseInt(req.params.id);
+
+	var toDoUpdate = toDoList.filter(function(todo) {
+		return todo._id == toDoID;
+	})[0];
+
+	toDoUpdate.list = req.body.list;
+	toDoUpdate.description = req.body.description;
+
+	res.json(toDoUpdate);
+
+});
+
+
 
 
 
