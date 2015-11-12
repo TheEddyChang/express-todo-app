@@ -1,12 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// var hbs = require('hbs');
-
-
 var app = express();
-// app.use(express.static(__dirname + '/public'));
+var hbs = require('hbs');
 
-// app.set('view engine', hbs);
+app.use(express.static(__dirname + '/public'));
+
+app.set('view engine', 'hbs');
 
 //configuring for bodyparser
 app.use(bodyParser.urlencoded({
@@ -33,9 +32,9 @@ var toDoList = [{
 
 
 
-// app.get('/', function(req,res){
-// 	res.render('index');
-// });
+app.get('/', function(req,res){
+	res.render('index');
+});
 
 
 
