@@ -1,14 +1,18 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+// var hbs = require('hbs');
 
 
 var app = express();
+// app.use(express.static(__dirname + '/public'));
 
+// app.set('view engine', hbs);
 
 //configuring for bodyparser
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+
 
 
 
@@ -29,7 +33,16 @@ var toDoList = [{
 
 
 
+// app.get('/', function(req,res){
+// 	res.render('index');
+// });
+
+
+
+
 //setting up route
+
+
 app.get('/api', function(req, res) {
 	res.json({
 		test: "Doh!"
@@ -102,7 +115,7 @@ app.delete('/api/todo/:id', function(req, res) {
 
 
 
-var server = app.listen(process.env.PORT || 4000, function() {
+var server = app.listen(process.env.PORT || 3000, function() {
 	console.log("WASABIIIIIIIII");
 });
 
