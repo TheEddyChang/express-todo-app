@@ -13,16 +13,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //seed data for Todo
 var toDoList = [
 {   _id: 1,
-	tasks : "laundry",
-    time: "1:30 pm"
+	task : "laundry",
+    description: "1:30 pm"
 },
 {   _id: 2,
-    tasks : "grocieries",
-    time : "6:00 pm"
+    task : "grocieries",
+    description : "6:00 pm"
 },
 {   _id: 3,
-    tasks : "make dinner",
-    time : "7:00 pm"
+    task : "make dinner",
+    description : "7:00 pm"
 }];
 
 
