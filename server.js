@@ -13,15 +13,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //seed data for Todo
 var toDoList = [
 {   _id: 1,
-	task: "laundry",
+	tasks : "laundry",
     time: "1:30 pm"
 },
 {   _id: 2,
-    task : "grocieries",
+    tasks : "grocieries",
     time : "6:00 pm"
 },
 {   _id: 3,
-    task : "make dinner",
+    tasks : "make dinner",
     time : "7:00 pm"
 }];
 
@@ -37,16 +37,16 @@ app.get('/api/todo', function(req, res) {
 	res.json(toDoList);
 });
 
-// //get a single todo
-// app.get('/api/todo/:id', function(req, res){
-// 	//get todo id from URL params
-// 	var todoID = parseInt (req.params.id);
-// 	//find todo by ID
-//     var findToDo = toDoList.filter(function(todo){
-//     	return todo._id == todoID;
-//         });
-//         res.json(findToDo);
-//     });
+//get a single todo
+app.get('/api/todo/:id', function(req, res){
+	//get todo id from URL params
+	var todoID = parseInt (req.params.id);
+	//find todo by ID
+    var findToDo = toDoList.filter(function(todo){
+    	return todo._id == todoID;
+        });
+        res.json(findToDo);
+    });
 
 
 //setting POST route to post a new todo
@@ -76,12 +76,15 @@ app.put('/api/todo/:id', function(req,res){
 		return todo._id == toDoID;
 	})[0];
 
-	toDoUpdate.list = req.body.list;
+	toDoUpdate.task = req.body.task;
 	toDoUpdate.description = req.body.description;
 
 	res.json(toDoUpdate);
 
 });
+
+
+//setting up Delete route to update
 
 
 
