@@ -1,14 +1,11 @@
-h1 {
-	text-align: center;
+body {
+	background-color: beige;
+}
+
+.container {
+	padding-left: 300px;
 }
 
 
 
-p {
-	font-color: black
-	text-align: center;
-}
 
-.form-group {
-	padding-left: 150px;
-}
